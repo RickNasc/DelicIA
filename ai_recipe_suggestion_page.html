@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DelicIA - Sugestão de IA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="back-button" onclick="window.history.back()">&#8592;</a>
+        Sugestão de Receitas por IA
+    </header>
+
+    <div class="container">
+        <h1>Obtenha Sugestões de Receitas</h1>
+        <div class="form-group">
+            <label for="ingredientsInput">Ingredientes que você tem:</label>
+            <textarea id="ingredientsInput" placeholder="Ex: frango, brócolis, arroz"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="preferencesInput">Preferências ou restrições alimentares:</label>
+            <textarea id="preferencesInput" placeholder="Ex: vegetariano, sem glúten, rápido"></textarea>
+        </div>
+        <button onclick="getAISuggestion()">Gerar Sugestão</button>
+
+        <div class="suggestion-output" id="aiSuggestionOutput">
+            <p style="text-align: center; color: #999;">Sua sugestão de receita aparecerá aqui.</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 DelicIA App
+    </footer>
+
+    <script src="ai_recipe_suggestion_page.js"></script>
+</body>
+</html>
+

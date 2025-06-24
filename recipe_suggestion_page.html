@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DelicIA - Sugestão Inteligente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header com navegação -->
+    <header class="header">
+        <a href="#" class="back-button" onclick="window.history.back()">←</a>
+        <h1>Delic<span>IA</span> - Sugestões</h1>
+        <div class="header-icons">
+            <button class="icon-btn" onclick="location.href='#home_page'">🏠</button>
+        </div>
+    </header>
+
+    <main class="suggestion-container">
+        <!-- Seção de introdução -->
+        <div class="intro-section">
+            <h2>🤖 Sugestões Inteligentes de Receitas</h2>
+            <p>Conte-nos o que você tem na geladeira e suas preferências. Nossa IA criará receitas perfeitas para você!</p>
+        </div>
+
+        <!-- Formulário de ingredientes -->
+        <div class="form-section">
+            <div class="form-group">
+                <label for="ingredientsInput">
+                    <span class="label-icon">🥕</span>
+                    Ingredientes disponíveis
+                </label>
+                <div class="input-container">
+                    <textarea 
+                        id="ingredientsInput" 
+                        placeholder="Digite os ingredientes que você tem... Ex: frango, brócolis, arroz, cebola"
+                        rows="3"
+                    ></textarea>
+                    <div class="ingredient-tags" id="ingredientTags"></div>
+                </div>
+                <div class="quick-ingredients">
+                    <span class="quick-label">Ingredientes populares:</span>
+                    <button class="ingredient-chip" onclick="addIngredient('frango')">🐔 Frango</button>
+                    <button class="ingredient-chip" onclick="addIngredient('arroz')">🍚 Arroz</button>
+                    <button class="ingredient-chip" onclick="addIngredient('tomate')">🍅 Tomate</button>
+                    <button class="ingredient-chip" onclick="addIngredient('cebola')">🧅 Cebola</button>
+                    <button class="ingredient-chip" onclick="addIngredient('alho')">🧄 Alho</button>
+                    <button class="ingredient-chip" onclick="addIngredient('batata')">🥔 Batata</button>
+                </div>
+            </div>
+
+            <!-- Preferências alimentares -->
+            <div class="form-group">
+                <label for="preferencesSelect">
+                    <span class="label-icon">⚡</span>
+                    Preferências e restrições
+                </label>
+                <div class="preferences-grid">
+                    <div class="preference-item">
+                        <input type="checkbox" id="vegetariano" value="vegetariano">
+                        <label for="vegetariano">🌱 Vegetariano</label>
+                    </div>
+                    <div class="preference-item">
+                        <input type="checkbox" id="vegano" value="vegano">
+                        <label for="vegano">🥬 Vegano</label>
+                    </div>
+                    <div class="preference-item">
+                        <input type="checkbox" id="sem-gluten" value="sem glúten">
+                        <label for="sem-gluten">🌾 Sem Glúten</label>
+                    </div>
+                    <div class="preference-item">
+                        <input type="checkbox" id="sem-lactose" value="sem lactose">
+                        <label for="sem-lactose">🥛 Sem Lactose</label>
+                    </div>
+                    <div class="preference-item">
+                        <input type="checkbox" id="low-carb" value="low carb">
+                        <label for="low-carb">🥩 Low Carb</label>
+                    </div>
+                    <div class="preference-item">
+                        <input type="checkbox" id="fitness" value="fitness">
+                        <label for="fitness">💪 Fitness</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tempo de preparo -->
+            <div class="form-group">
+                <label for="timeRange">
+                    <span class="label-icon">⏱️</span>
+                    Tempo disponível
+                </label>
+                <div class="time-options">
+                    <input type="radio" id="time-15" name="time" value="15">
+                    <label for="time-15" class="time-option">⚡ Até 15 min</label>
+                    
+                    <input type="radio" id="time-30" name="time" value="30" checked>
+                    <label for="time-30" class="time-option">🕐 Até 30 min</label>
+                    
+                    <input type="radio" id="time-60" name="time" value="60">
+                    <label for="time-60" class="time-option">🕑 Até 1 hora</label>
+                    
+                    <input type="radio" id="time-any" name="time" value="any">
+                    <label for="time-any" class="time-option">🍳 Qualquer tempo</label>
+                </div>
+            </div>
+
+            <!-- Dificuldade -->
+            <div class="form-group">
+                <label for="difficultyRange">
+                    <span class="label-icon">📊</span>
+                    Nível de dificuldade
+                </label>
+                <div class="difficulty-options">
+                    <input type="radio" id="diff-easy" name="difficulty" value="fácil" checked>
+                    <label for="diff-easy" class="difficulty-option">😊 Fácil</label>
+                    
+                    <input type="radio" id="diff-medium" name="difficulty" value="médio">
+                    <label for="diff-medium" class="difficulty-option">🤔 Médio</label>
+                    
+                    <input type="radio" id="diff-hard" name="difficulty" value="difícil">
+                    <label for="diff-hard" class="difficulty-option">👨‍🍳 Difícil</label>
+                </div>
+            </div>
+
+            <!-- Botão de gerar sugestão -->
+            <div class="generate-section">
+                <button class="generate-btn" id="generateBtn" onclick="generateSmartSuggestion()">
+                    <span class="btn-icon">✨</span>
+                    Gerar Sugestão Inteligente
+                </button>
+            </div>
+        </div>
+
+        <!-- Área de resultados -->
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <h3>🎯 Suas Receitas Sugeridas</h3>
+            <div class="suggestions-grid" id="suggestionsGrid">
+                <!-- Sugestões serão inseridas aqui pelo JavaScript -->
+            </div>
+            <div class="regenerate-section">
+                <button class="regenerate-btn" onclick="generateSmartSuggestion()">
+                    🔄 Gerar Novas Sugestões
+                </button>
+            </div>
+        </div>
+
+        <!-- Loading state -->
+        <div class="loading-section" id="loadingSection" style="display: none;">
+            <div class="loading-animation">
+                <div class="cooking-pot">🍲</div>
+                <div class="loading-text">Preparando suas receitas...</div>
+                <div class="loading-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Navegação inferior -->
+    <nav class="bottom-nav">
+        <button class="nav-btn" onclick="location.href='#home_page'">
+            <div class="nav-icon">🏠</div>
+            <div>Início</div>
+        </button>
+        <button class="nav-btn" onclick="location.href='#search_page'">
+            <div class="nav-icon">🔍</div>
+            <div>Buscar</div>
+        </button>
+        <button class="nav-btn" onclick="location.href='#create_recipe_page'">
+            <div class="nav-icon">➕</div>
+            <div>Criar</div>
+        </button>
+        <button class="nav-btn" onclick="location.href='#favorites_page'">
+            <div class="nav-icon">❤️</div>
+            <div>Favoritos</div>
+        </button>
+        <button class="nav-btn" onclick="location.href='#delicia_perfil'">
+            <div class="nav-icon">👤</div>
+            <div>Perfil</div>
+        </button>
+    </nav>
+
+    <script src="data.js"></script>
+    <script src="recipe_suggestion_page.js"></script>
+</body>
+</html>
+

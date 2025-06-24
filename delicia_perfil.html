@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DelicIA - Perfil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Delic<span>IA</span></h1>
+        <div class="header-icons">
+            <button class="icon-btn" onclick="location.href='#search_page'">🔍</button>
+            <button class="icon-btn" onclick="location.href='#notifications_page'">🔔</button>
+            <button class="icon-btn" id="logoutBtn">🚪</button>
+        </div>
+    </header>
+    
+    <main class="profile-container">
+        <div class="profile-header">
+            <div class="profile-pic">
+                <img src="placeholder-user.jpg" alt="Foto de perfil" class="profile-picture" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\" viewBox=\"0 0 24 24\"><path fill=\"%23cccccc\" d=\"M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\"/></svg>'">
+            </div>
+            
+            <div class="profile-info">
+                <h2 class="username">Nome do Usuário</h2>
+                <p class="user-email">usuario@exemplo.com</p>
+                
+                <div class="profile-stats">
+                    <div class="stat">
+                        <div class="stat-number recipes-count">0</div>
+                        <div>Receitas</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number followers-count">0</div>
+                        <div>Seguidores</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number following-count">0</div>
+                        <div>Seguindo</div>
+                    </div>
+                </div>
+                
+                <button class="edit-profile-btn" id="editProfileBtn">Editar Perfil</button>
+            </div>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab active" id="myRecipesTab">Minhas Receitas</button>
+            <button class="tab" id="favoritesTab">Favoritas</button>
+        </div>
+        
+        <!-- Banner de Sugestão Inteligente -->
+        <div class="ai-suggestion-banner">
+            <div class="ai-banner-content">
+                <div class="ai-banner-icon">👨‍🍳</div>
+                <div class="ai-banner-text">
+                    <h3>Expanda seu repertório culinário!</h3>
+                    <p>Descubra receitas personalizadas para você!</p>
+                </div>
+                <button class="ai-banner-btn" onclick="location.href=\'#recipe_suggestion_page\'">
+                    ✨ Sugestões para Mim
+                </button>
+            </div>
+        </div>
+        
+        <div id="my-recipes" class="recipes-grid tab-content active">
+            <!-- Exemplo de receita (pode ser removido quando o JS carregar dinamicamente) -->
+            <div class="recipe-card">
+                <img src="placeholder-recipe.jpg" alt="Receita" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"150\" viewBox=\"0 0 24 24\"><path fill=\"%23cccccc\" d=\"M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z\'/></svg>'">
+                <h3>Nome da Receita</h3>
+                <p>Tempo: 30min</p>
+            </div>
+        </div>
+        
+        <div id="favorites" class="recipes-grid tab-content">
+            <p class="empty-message">Nenhuma receita favoritada ainda.</p>
+        </div>
+    </main>
+    
+    <nav class="bottom-nav">
+        <button class="nav-btn" onclick="location.href='#home_page'">
+            <div class="nav-icon">🏠</div>
+            <div>Início</div>
+        </button>
+        <button class="nav-btn" onclick="location.href='#search_page'">
+            <div class="nav-icon">🔍</div>
+            <div>Explorar</div>
+        </button>
+        <button class="nav-btn" onclick="location.href='#create_recipe_page'">
+            <div class="nav-icon">➕</div>
+            <div>Criar</div>
+        </button>
+        <button class="nav-btn" onclick="location.href='#favorites_page'">
+            <div class="nav-icon">❤️</div>
+            <div>Favoritos</div>
+        </button>
+        <button class="nav-btn active" onclick="location.href='#profile_page'">
+            <div class="nav-icon">👤</div>
+            <div>Perfil</div>
+        </button>
+    </nav>
+
+    <script>
+        // Script básico para funcionalidades mínimas
+        document.addEventListener('DOMContentLoaded', function() {
+            // Controle das abas
+            const myRecipesTab = document.getElementById('myRecipesTab');
+            const favoritesTab = document.getElementById('favoritesTab');
+            const myRecipesContent = document.getElementById('my-recipes');
+            const favoritesContent = document.getElementById('favorites');
+            
+            myRecipesTab.addEventListener('click', function() {
+                myRecipesTab.classList.add('active');
+                favoritesTab.classList.remove('active');
+                myRecipesContent.classList.add('active');
+                favoritesContent.classList.remove('active');
+            });
+            
+            favoritesTab.addEventListener('click', function() {
+                favoritesTab.classList.add('active');
+                myRecipesTab.classList.remove('active');
+                favoritesContent.classList.add('active');
+                myRecipesContent.classList.remove('active');
+            });
+            
+            // Logout button
+            document.getElementById('logoutBtn').addEventListener('click', function() {
+                if(confirm('Deseja realmente sair?')) {
+                    // Aqui você pode adicionar a lógica de logout
+                    alert('Você foi desconectado');
+                    location.href = 'login.html'; // Redirecionar para a página de login
+                }
+            });
+            
+            // Edit profile button
+            document.getElementById('editProfileBtn').addEventListener('click', function() {
+                alert('Abrir editor de perfil');
+                // Implementar lógica de edição de perfil aqui
+            });
+        });
+    </script>
+    
+    <script src="data.js"></script>
+    <script src="delicia_perfil.js"></script>
+</body>
+</html>

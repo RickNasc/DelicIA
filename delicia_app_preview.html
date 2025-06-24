@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prévia do Aplicativo DelicIA</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #4a7862;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .screens-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .screen {
+            width: 300px;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .screen-header {
+            background-color: #4a7862;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .screen-content {
+            padding: 20px;
+            min-height: 500px;
+            border: 1px solid #e0e0e0;
+            border-top: none;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        .screen-description {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .mockup-element {
+            margin-bottom: 15px;
+        }
+        .app-bar {
+            background-color: #4a7862;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        .input-field {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .button {
+            background-color: #4a7862;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 15px;
+            text-align: center;
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .recipe-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        .recipe-image {
+            height: 120px;
+            background-color: #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+        .tab-bar {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+        .tab {
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        .tab.active {
+            border-bottom: 2px solid #4a7862;
+            color: #4a7862;
+            font-weight: bold;
+        }
+        .nav-bar {
+            display: flex;
+            justify-content: space-around;
+            background-color: white;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+        }
+        .nav-item {
+            text-align: center;
+            font-size: 12px;
+        }
+        .nav-icon {
+            background-color: #e0e0e0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin: 0 auto 5px;
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .profile-pic {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            margin-right: 15px;
+        }
+        .profile-info {
+            flex: 1;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 15px 0;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-value {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+        }
+        .ai-result {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .ai-result-title {
+            color: #4a7862;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .ingredient-list {
+            margin-bottom: 15px;
+        }
+        .ingredient-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .add-button {
+            width: 20px;
+            height: 20px;
+            background-color: #4a7862;
+            color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prévia do Aplicativo DelicIA</h1>
+        
+        <div class="screens-container">
+            <!-- Tela de Login -->
+            <div class="screen">
+                <div class="screen-header">Tela de Login</div>
+                <div class="screen-content">
+                    <div style="text-align: center; margin: 40px 0;">
+                        <div style="font-size: 28px; font-weight: bold; color: #4a7862;">DelicIA</div>
+                        <div style="font-size: 14px; color: #666; margin-top: 5px;">Sua assistente culinária</div>
+                    </div>
+                    
+                    <div class="mockup-element">
+                        <input type="text" class="input-field" placeholder="Email">
+                    </div>
+                    
+                    <div class="mockup-element">
+                        <input type="password" class="input-field" placeholder="Senha">
+                    </div>
+                    
+                    <div class="mockup-element">
+                        <button class="button">Entrar</button>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 20px;">
+                        <div style="margin-bottom: 10px; color: #d35f43;">Esqueceu a senha?</div>
+                        <div style="color: #d35f43;">Criar uma conta</div>
+                    </div>
+                </div>
+                <div class="screen-description">
+                    Tela de login com campos para email e senha, opções para recuperação de senha e criação de nova conta.
+                </div>
+            </div>
+            
+            <!-- Feed Principal -->
+            <div class="screen">
+                <div class="screen-header">Feed Principal</div>
+                <div class="screen-content">
+                    <div class="app-bar">
+                        DelicIA
+                    </div>
+                    
+                    <div class="tab-bar">
+                        <div class="tab active">Para Você</div>
+                        <div class="tab">Tendências</div>
+                        <div class="tab">Categorias</div>
+                    </div>
+                    
+                    <div class="recipe-card">
+                        <div class="recipe-image">Imagem da Receita</div>
+                        <div style="font-weight: bold;">Risoto de Cogumelos</div>
+                        <div style="font-size: 12px; color: #666;">por Maria Silva</div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 12px;">
+                            <span>⭐ 4.8</span>
+                            <span>🕒 45 min</span>
+                            <span>❤️ 128</span>
+                        </div>
+                    </div>
+                    
+                    <div class="recipe-card">
+                        <div class="recipe-image">Imagem da Receita</div>
+                        <div style="font-weight: bold;">Frango ao Curry</div>
+                        <div style="font-size: 12px; color: #666;">por João Santos</div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 12px;">
+                            <span>⭐ 4.6</span>
+                            <span>🕒 30 min</span>
+                            <span>❤️ 95</span>
+                        </div>
+                    </div>
+                    
+                    <div class="recipe-card">
+                        <div class="recipe-image">Imagem da Receita</div>
+                        <div style="font-weight: bold;">Bolo de Cenoura</div>
+                        <div style="font-size: 12px; color: #666;">por Ana Costa</div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 12px;">
+                            <span>⭐ 4.9</span>
+                            <span>🕒 60 min</span>
+                            <span>❤️ 210</span>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-bar">
+                        <div class="nav-item">
+                            <div class="nav-icon"></div>
+                            <div>Início</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon"></div>
+                            <div>Buscar</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon"></div>
+                            <div>Postar</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon"></div>
+                            <div>Favoritos</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon"></div>
+                            <div>Perfil</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen-description">
+                    Feed principal mostrando receitas recomendadas, com abas para alternar entre diferentes visualizações e barra de navegação inferior.
+                </div>
+            </div>
+            
+            <!-- Perfil de Usuário -->
+            <div class="screen">
+                <div class="screen-header">Perfil de Usuário</div>
+                <div class="screen-content">
+                    <div class="app-bar">
+                        Perfil
+                    </div>
+                    
+                    <div class="profile-header">
+                        <div class="profile-pic"></div>
+                        <div class="profile-info">
+                            <div style="font-weight: bold;">Maria Silva</div>
+                            <div style="font-size: 12px; color: #666;">@mariasilva</div>
+                            <div style="font-size: 12px; margin-top: 5px;">Amante da gastronomia e apaixonada por receitas saudáveis</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-value">24</div>
+                            <div class="stat-label">Receitas</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">156</div>
+                            <div class="stat-label">Seguidores</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">87</div>
+                            <div class="stat-label">Seguindo</div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-bar">
+                        <div class="tab active">Minhas Receitas</div>
+                        <div class="tab">Favoritas</div>
+                    </div>
+                    
+                    <div class="recipe-card">
+                        <div class="recipe-image">Imagem da Receita</div>
+                        <div style="font-weight: bold;">Salada Primavera</div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 12px;">
+                            <span>⭐ 4.7</span>
+                            <span>🕒 15 min</span>
+                            <span>❤️ 78</span>
+                        </div>
+                    </div>
+                    
+                    <div class="recipe-card">
+                        <div class="recipe-image">Imagem da Receita</div>
+                        <div style="font-weight: bold;">Smoothie Verde</div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 12px;">
+                            <span>⭐ 4.5</span>
+                            <span>🕒 5 min</span>
+                            <span>❤️ 42</span>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-bar">
+                        <div class="nav-item">
+                            <div class="nav-icon"></div>
+                            <div>Início</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon"></div>
+                            <div>Buscar</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon"></div>
+                            <div>Postar</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon"></div>
+                            <div>Favoritos</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon"></div>
+                            <div>Perfil</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen-description">
+                    Perfil do usuário mostrando informações pessoais, estatísticas e abas para visualizar receitas próprias e favoritas.
+                </div>
+            </div>
+            
+            <!-- Postar Receita -->
+            <div class="screen">
+                <div class="screen-header">Postar Receita</div>
+                <div class="screen-content">
+                    <div class="app-bar">
+                        Nova Receita
+                    </div>
+                    
+                    <div class="mockup-element">
+                        <input type="text" class="input-field" placeholder="Título da Receita">
+                    </div>
+                    
+                    <div class="mockup-element">
+                        <div style="border: 1px dashed #ddd; border-radius: 8px; padding: 20px; text-align: center; color: #666;">
+                            Toque para adicionar fotos ou vídeos
+                        </div>
+                    </div>
+                    
+                    <div class="mockup-element">
+                        <div style="font-weight: bold; margin-bottom: 10px;">Ingredientes</div>
+                        <div class="ingredient-list">
+                            <div class="ingredient-item">
+                                <div class="add-button">+</div>
+                                <input type="text" class="input-field" placeholder="Ingrediente" style="margin: 0;">
+                            </div>
+                            <div class="ingredient-item">
+                                <div class="add-button">+</div>
+                                <input type="text" class="input-field" placeholder="Ingrediente" style="margin: 0;">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mockup-element">
+                        <div style="font-weight: bold; margin-bottom: 10px;">Modo de Preparo</div>
+                        <textarea class="input-field" placeholder="Descreva o passo a passo..." style="height: 100px;"></textarea>
+                    </div>
+                    
+                    <div style="display: flex; gap: 10px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 12px; margin-bottom: 5px;">Tempo de Preparo</div>
+                            <input type="text" class="input-field" placeholder="min">
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-size: 12px; margin-bottom: 5px;">Porções</div>
+                            <input type="text" class="input-field" placeholder="porções">
+                        </div>
+                    </div>
+                    
+                    <div class="mockup-element" style="margin-top: 15px;">
+                        <button class="button">Publicar Receita</button>
+                    </div>
+                </div>
+                <div class="screen-description">
+                    Formulário para postar uma nova receita, com campos para título, fotos, ingredientes, modo de preparo, tempo e porções.
+                </div>
+            </div>
+            
+            <!-- Sugestão de IA (Nova Funcionalidade) -->
+            <div class="screen">
+                <div class="screen-header">Sugestão de IA</div>
+                <div class="screen-content">
+                    <div class="app-bar">
+                        Sugestões de IA
+                    </div>
+                    
+                    <div class="tab-bar">
+                        <div class="tab active">Por Ingredientes</div>
+                        <div class="tab">Por Preferências</div>
+                    </div>
+                    
+                    <div class="mockup-element">
+                        <div style="font-weight: bold; margin-bottom: 10px;">Quais ingredientes você tem disponíveis?</div>
+                        <textarea class="input-field" placeholder="Ex: frango, arroz, cenoura, cebola" style="height: 80px;"></textarea>
+                    </div>
+                    
+                    <div class="mockup-element">
+                        <button class="button">Sugerir Receita</button>
+                    </div>
+                    
+                    <div class="ai-result">
+                        <div class="ai-result-title">Receita Sugerida pela IA</div>
+                        
+                        <div style="font-weight: bold; font-size: 16px; margin-bottom: 10px;">Frango com Arroz e Legumes</div>
+                        
+                        <div style="margin-bottom: 15px;">
+                            <div style="font-weight: bold; margin-bottom: 5px;">Ingredientes:</div>
+                            <ul style="margin: 0; padding-left: 20px;">
+                                <li>2 peitos de frango</li>
+                                <li>1 xícara de arroz</li>
+                                <li>2 cenouras médias</li>
+                                <li>1 cebola grande</li>
+                                <li>2 dentes de alho</li>
+                                <li>Sal e pimenta a gosto</li>
+                                <li>2 colheres de sopa de azeite</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="margin-bottom: 15px;">
+                            <div style="font-weight: bold; margin-bottom: 5px;">Modo de Preparo:</div>
+                            <ol style="margin: 0; padding-left: 20px;">
+                                <li>Corte o frango em cubos e tempere com sal e pimenta.</li>
+                                <li>Em uma panela, aqueça o azeite e doure o frango.</li>
+                                <li>Adicione a cebola e o alho picados e refogue.</li>
+                                <li>Acrescente a cenoura cortada em cubos e refogue por mais 3 minutos.</li>
+                                <li>Adicione o arroz e água suficiente. Cozinhe até o arroz ficar macio.</li>
+                                <li>Ajuste o sal e sirva quente.</li>
+                            </ol>
+                        </div>
+                        
+                        <div style="font-size: 14px; color: #666;">
+                            <div>Tempo de Preparo: 30 minutos</div>
+                            <div>Rendimento: 4 porções</div>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: flex-end; margin-top: 15px;">
+                            <div style="margin-right: 15px; color: #4a7862;">Salvar Receita</div>
+                            <div style="color: #d35f43;">Compartilhar</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen-description">
+                    Nova funcionalidade de IA que sugere receitas com base nos ingredientes disponíveis ou preferências do usuário.
+                </div>
+            </div>
+            
+            <!-- Detalhes da Receita -->
+            <div class="screen">
+                <div class="screen-header">Detalhes da Receita</div>
+                <div class="screen-content">
+                    <div class="app-bar">
+                        Detalhes da Receita
+                    </div>
+                    
+                    <div class="recipe-image" style="height: 150px;">Imagem da Receita</div>
+                    
+                    <div style="margin: 15px 0;">
+                        <div style="font-size: 18px; font-weight: bold;">Risoto de Cogumelos</div>
+                        <div style="display: flex; align-items: center; margin-top: 5px;">
+                            <div class="profile-pic" style="width: 30px; height: 30px;"></div>
+                            <div style="margin-left: 10px; font-size: 14px;">Maria Silva</div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; margin: 15px 0; font-size: 14px;">
+                        <div>⭐ 4.8 (42 avaliações)</div>
+                        <div>🕒 45 min</div>
+                        <div>👥 4 porções</div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-around; margin: 20px 0; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 10px 0;">
+                        <div style="text-align: center;">
+                            <div>❤️</div>
+                            <div style="font-size: 12px;">Curtir</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div>💬</div>
+                            <div style="font-size: 12px;">Comentar</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div>🔖</div>
+                            <div style="font-size: 12px;">Salvar</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div>📤</div>
+                            <div style="font-size: 12px;">Compartilhar</div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-bar">
+                        <div class="tab active">Ingredientes</div>
+                        <div class="tab">Modo de Preparo</div>
+                        <div class="tab">Comentários</div>
+                    </div>
+                    
+                    <div>
+                        <ul style="padding-left: 20px;">
+                            <li>1 1/2 xícara de arroz arbóreo</li>
+                            <li>200g de cogumelos variados</li>
+                            <li>1 cebola média picada</li>
+                            <li>2 dentes de alho picados</li>
+                            <li>1/2 xícara de vinho branco seco</li>
+                            <li>4 xícaras de caldo de legumes</li>
+                            <li>2 colheres de sopa de manteiga</li>
+                            <li>1/2 xícara de queijo parmesão ralado</li>
+                            <li>Sal e pimenta a gosto</li>
+                            <li>Salsinha picada para finalizar</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="screen-description">
+                    Detalhes completos de uma receita, incluindo ingredientes, modo de preparo e opções para interagir (curtir, comentar, salvar).
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DelicIA - Detalhes da Receita</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="back-button" onclick="window.history.back()">&#8592;</a>
+        Detalhes da Receita
+    </header>
+
+    <div class="container">
+        <img src="https://via.placeholder.com/800x300/D2691E/FFFFFF?text=Imagem+da+Receita" alt="Imagem da Receita" class="recipe-image">
+        <h1>Frango Xadrez Delicioso</h1>
+        <div class="recipe-meta">
+            <span>&#128337; 45 min</span>
+            <span>&#127869; 4 porções</span>
+            <span>&#128172; Fácil</span>
+        </div>
+
+        <h2 class="section-title">Descrição</h2>
+        <p>Uma receita clássica e saborosa de frango xadrez, perfeita para o almoço ou jantar...</p>
+
+        <h2 class="section-title">Ingredientes</h2>
+        <ul>
+            <li>500g de peito de frango em cubos</li>
+            <li>1 cebola média picada</li>
+            <li>1 pimentão verde picado</li>
+            <li>1 pimentão vermelho picado</li>
+            <li>1/2 xícara de amendoim torrado</li>
+            <li>2 colheres de sopa de molho shoyu</li>
+            <li>1 colher de sopa de amido de milho</li>
+            <li>Água, sal e pimenta do reino a gosto</li>
+        </ul>
+
+        <h2 class="section-title">Modo de Preparo</h2>
+        <ol>
+            <li>Em uma panela, aqueça o óleo e doure o frango em cubos. Tempere com sal e pimenta.</li>
+            <li>Adicione a cebola e os pimentões, refogando até ficarem macios.</li>
+            <li>Em um recipiente separado, misture o molho shoyu, o amido de milho e um pouco de água.</li>
+            <li>Despeje o molho sobre o frango e os vegetais, mexendo até engrossar.</li>
+            <li>Adicione o amendoim torrado e misture bem.</li>
+            <li>Sirva quente, acompanhado de arroz branco.</li>
+        </ol>
+
+        <div class="comments-section">
+            <h2 class="section-title">Comentários</h2>
+
+            <div class="comment">
+                <div class="comment-author">Maria Silva</div>
+                <div class="comment-text">Adorei essa receita! Ficou uma delícia e super fácil de fazer.</div>
+            </div>
+            <div class="comment">
+                <div class="comment-author">João Santos</div>
+                <div class="comment-text">Fiz algumas adaptações e ficou ótimo! Recomendo adicionar um pouco de gengibre.</div>
+            </div>
+
+            <!-- ✅ IDs adicionados -->
+            <div class="comment-form">
+                <h3>Deixe seu comentário</h3>
+                <textarea id="campoComentario" placeholder="Escreva seu comentário aqui..."></textarea>
+                <button id="btnEnviarComentario">Enviar Comentário</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 DelicIA App
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="recipe_detail_page.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DelicIA - Página Inicial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cabeçalho principal do app -->
+    <header class="header">
+        <h1>
+            <span>Delic</span>IA
+        </h1>
+        <div class="header-icons">
+            <!-- Ícones do menu superior -->
+            <a href="#search_page" title="Buscar receitas">🔍</a>
+            <a href="#notifications_page" title="Notificações">🔔</a>
+            <a href="#delicia_perfil" title="Meu perfil">👤</a>
+        </div>
+    </header>
+
+    <!-- Container principal da página -->
+    <div class="container">
+        <!-- Barra de pesquisa rápida -->
+        <div class="search-bar">
+            <input type="text" id="campoBuscaHome" placeholder="O que você quer cozinhar hoje?">
+            <button onclick="buscarReceita()">Buscar</button>
+        </div>
+
+        <!-- Botão de sugestão inteligente -->
+        <div class="ai-suggestion-banner">
+            <div class="ai-banner-content">
+                <div class="ai-banner-icon">🤖</div>
+                <div class="ai-banner-text">
+                    <h3>Sugestão Inteligente</h3>
+                    <p>Deixe nossa IA criar receitas perfeitas com seus ingredientes!</p>
+                </div>
+                <button class="ai-banner-btn" onclick="location.href='#recipe_suggestion_page'">
+                    ✨ Experimentar
+                </button>
+            </div>
+        ></div>
+
+        <!-- Seção de receitas populares -->
+        <h2 style="color: var(--cor-verde); margin-bottom: 20px;">🍽️ Receitas Populares</h2>
+        <div id="gridReceitasPopulares" class="recipe-grid">
+            <!-- As receitas serão carregadas aqui pelo JavaScript -->
+            <div style="text-align: center; color: #999; grid-column: 1/-1;">
+                Carregando receitas deliciosas... 🍳
+            </div>
+        </div>
+
+        <!-- Seção de categorias (adicionando para ficar mais estudantil) -->
+        <h3 style="color: var(--cor-laranja); margin-top: 30px; margin-bottom: 15px;">📂 Categorias</h3>
+        <div class="categories">
+            <div class="category-tag" onclick="filtrarPorCategoria('doces')">🍰 Doces</div>
+            <div class="category-tag" onclick="filtrarPorCategoria('salgados')">🥘 Salgados</div>
+            <div class="category-tag" onclick="filtrarPorCategoria('bebidas')">🥤 Bebidas</div>
+            <div class="category-tag" onclick="filtrarPorCategoria('vegetariano')">🥗 Vegetariano</div>
+            <div class="category-tag" onclick="filtrarPorCategoria('rapido')">⚡ Rápido</div>
+        </div>
+    </div>
+
+    <!-- Navegação inferior (mobile) -->
+    <div class="bottom-nav">
+        <button class="nav-btn active" onclick="location.href='#home_page'">
+            <span class="nav-icon">🏠</span>
+            Início
+        </button>
+        <button class="nav-btn" onclick="location.href='#search_page'">
+            <span class="nav-icon">🔍</span>
+            Buscar
+        </button>
+        <button class="nav-btn" onclick="location.href='#create_recipe_page'">
+            <span class="nav-icon">➕</span>
+            Criar
+        </button>
+        <button class="nav-btn" onclick="location.href='#favorites_page'">
+            <span class="nav-icon">❤️</span>
+            Favoritos
+        </button>
+        <button class="nav-btn" onclick="location.href='#delicia_perfil'">
+            <span class="nav-icon">👤</span>
+            Perfil
+        </button>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        &copy; 2025 DelicIA App - Feito com ❤️ por estudantes
+    </footer>
+
+    <!-- Script da página -->
+    <script src="home_page.js"></script>
+    
+    <script>
+        // Função simples para buscar receita (jeito estudantil)
+        function buscarReceita() {
+            const termo = document.getElementById('campoBuscaHome').value;
+            if (termo.trim() === '') {
+                alert('Digite algo para buscar!'); // feedback simples
+                return;
+            }
+            // Redireciona para página de busca com o termo
+            location.href = '#search_page?query=' + encodeURIComponent(termo);
+        }
+        
+        // Função para filtrar por categoria
+        function filtrarPorCategoria(categoria) {
+            console.log('Filtrando por categoria:', categoria); // debug
+            location.href = '#search_page?category=' + categoria;
+        }
+        
+        // Permite buscar apertando Enter
+        document.addEventListener('DOMContentLoaded', function() {
+            const campoBusca = document.getElementById('campoBuscaHome');
+            if (campoBusca) {
+                campoBusca.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        buscarReceita();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DelicIA - Favoritos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="back-button" onclick="window.history.back()">&#8592;</a>
+        Minhas Receitas Favoritas
+    </header>
+
+    <div class="container">
+        <!-- Banner de Sugestão Inteligente -->
+        <div class="ai-suggestion-banner">
+            <div class="ai-banner-content">
+                <div class="ai-banner-icon">🍽️</div>
+                <div class="ai-banner-text">
+                    <h3>Quer descobrir novos favoritos?</h3>
+                    <p>Nossa IA pode sugerir receitas que você vai amar!</p>
+                </div>
+                <button class="ai-banner-btn" onclick="location.href=\'#recipe_suggestion_page\'">
+                    ✨ Descobrir Receitas
+                </button>
+            </div>
+        </div>
+
+        <div id="favorites-grid" class="recipe-grid">
+            <!-- Favorite recipes will be loaded here by JavaScript -->
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 DelicIA App
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="favorites_page.js"></script>
+</body>
+</html>
+

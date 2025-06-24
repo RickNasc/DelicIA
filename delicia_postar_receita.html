@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DelicIA - Postar Receita</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Nova Receita</h1>
+        <div class="header-actions">
+            <button class="cancel-btn">Cancelar</button>
+            <button class="publish-btn">Publicar</button>
+        </div>
+    </header>
+    
+    <main class="post-container">
+        <form>
+            <div class="form-group">
+                <label for="recipe-title">Título da Receita</label>
+                <input type="text" id="recipe-title" placeholder="Ex: Bolo de Cenoura com Cobertura de Chocolate">
+            </div>
+            
+            <div class="form-group">
+                <label>Fotos e Vídeos</label>
+                <div class="media-upload">
+                    <div class="media-upload-icon">📷</div>
+                    <p>Toque para adicionar fotos ou vídeos</p>
+                    <p style="font-size: 0.8rem; color: #777; margin-top: 5px;">Adicione até 5 mídias</p>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Ingredientes</label>
+                <div class="ingredients-list">
+                    <div class="ingredient-item">
+                        <input type="text" placeholder="Ex: 2 xícaras de farinha de trigo">
+                        <button type="button" class="remove-btn">×</button>
+                    </div>
+                    <div class="ingredient-item">
+                        <input type="text" placeholder="Ex: 3 ovos">
+                        <button type="button" class="remove-btn">×</button>
+                    </div>
+                    <div class="ingredient-item">
+                        <input type="text" placeholder="Ex: 1 colher de sopa de fermento">
+                        <button type="button" class="remove-btn">×</button>
+                    </div>
+                </div>
+                <button type="button" class="add-ingredient-btn">
+                    <span class="add-icon">+</span> Adicionar Ingrediente
+                </button>
+            </div>
+            
+            <div class="form-group">
+                <label for="preparation">Modo de Preparo</label>
+                <textarea id="preparation" placeholder="Descreva o passo a passo da sua receita..."></textarea>
+            </div>
+            
+            <div class="time-portions">
+                <div class="form-group">
+                    <label for="prep-time">Tempo de Preparo</label>
+                    <input type="text" id="prep-time" placeholder="Ex: 45 minutos">
+                </div>
+                
+                <div class="form-group">
+                    <label for="portions">Porções</label>
+                    <input type="number" id="portions" placeholder="Ex: 8" min="1">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Categorias</label>
+                <div class="categories">
+                    <div class="category-tag">Doces</div>
+                    <div class="category-tag selected">Bolos</div>
+                    <div class="category-tag">Sobremesas</div>
+                    <div class="category-tag">Salgados</div>
+                    <div class="category-tag">Massas</div>
+                    <div class="category-tag">Carnes</div>
+                    <div class="category-tag">Vegetariano</div>
+                    <div class="category-tag">Vegano</div>
+                    <div class="category-tag">Sem Glúten</div>
+                    <div class="category-tag">Sem Lactose</div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="description">Descrição</label>
+                <textarea id="description" placeholder="Conte um pouco sobre sua receita, dicas especiais ou história..."></textarea>
+            </div>
+        </form>
+    </main>
+    
+    <nav class="bottom-nav">
+        <button class="nav-btn">
+            <div class="nav-icon">🏠</div>
+            <div>Início</div>
+        </button>
+        <button class="nav-btn">
+            <div class="nav-icon">🔍</div>
+            <div>Explorar</div>
+        </button>
+        <button class="nav-btn active">
+            <div class="nav-icon">➕</div>
+            <div>Criar</div>
+        </button>
+        <button class="nav-btn">
+            <div class="nav-icon">❤️</div>
+            <div>Favoritos</div>
+        </button>
+        <button class="nav-btn">
+            <div class="nav-icon">👤</div>
+            <div>Perfil</div>
+        </button>
+    </nav>
+    <script src="delicia_postar_receita.js"></script>
+</body>
+</html>
+

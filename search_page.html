@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DelicIA - Busca</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="back-button" onclick="window.history.back()">&#8592;</a>
+        Buscar Receitas
+    </header>
+
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Buscar receitas...">
+            <button onclick="performSearch()">Buscar</button>
+        </div>
+
+        <!-- Banner de Sugestão Inteligente -->
+        <div class="ai-suggestion-banner">
+            <div class="ai-banner-content">
+                <div class="ai-banner-icon">💡</div>
+                <div class="ai-banner-text">
+                    <h3>Não achou o que procurava?</h3>
+                    <p>Deixe nossa IA sugerir receitas com o que você tem!</p>
+                </div>
+                <button class="ai-banner-btn" onclick="location.href=\'#recipe_suggestion_page\'">
+                    ✨ Sugestão Inteligente
+                </button>
+            </div>
+        </div>
+
+        <div id="searchResults" class="recipe-grid">
+            <!-- Search results will be loaded here by JavaScript -->
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 DelicIA App
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="search_page.js"></script>
+</body>
+</html>
+

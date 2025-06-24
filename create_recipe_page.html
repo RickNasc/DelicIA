@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DelicIA - Postar Receita</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="back-button" onclick="window.history.back()">&#8592;</a>
+        Postar Nova Receita
+    </header>
+
+    <div class="container">
+        <!-- Banner de Sugestão Inteligente -->
+        <div class="ai-suggestion-banner">
+            <div class="ai-banner-content">
+                <div class="ai-banner-icon">🤔</div>
+                <div class="ai-banner-text">
+                    <h3>Sem ideias para sua receita?</h3>
+                    <p>Deixe nossa IA te ajudar a criar algo incrível!</p>
+                </div>
+                <button class="ai-banner-btn" onclick="location.href=\'#recipe_suggestion_page\'">
+                    ✨ Gerar Ideias
+                </button>
+            </div>
+        </div>
+
+        <form id="recipeForm">
+            <div class="form-group">
+                <label for="title">Título da Receita</label>
+                <input type="text" id="title" placeholder="Ex: Bolo de Cenoura da Vovó" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Descrição</label>
+                <textarea id="description" placeholder="Uma breve descrição da sua receita..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="media">Fotos/Vídeos (URLs)</label>
+                <div class="add-item-group">
+                    <input type="text" id="mediaInput" placeholder="URL da imagem ou vídeo">
+                    <button type="button" onclick="addMedia()">Adicionar</button>
+                </div>
+                <ul id="mediaList" class="item-list"></ul>
+            </div>
+
+            <div class="form-group">
+                <label for="ingredients">Ingredientes</label>
+                <div class="add-item-group">
+                    <input type="text" id="ingredientInput" placeholder="Ex: 2 xícaras de farinha">
+                    <button type="button" onclick="addIngredient()">Adicionar</button>
+                </div>
+                <ul id="ingredientList" class="item-list"></ul>
+            </div>
+
+            <div class="form-group">
+                <label for="preparation">Modo de Preparo</label>
+                <div class="add-item-group">
+                    <input type="text" id="stepInput" placeholder="Ex: Misture os ingredientes secos...">
+                    <button type="button" onclick="addStep()">Adicionar</button>
+                </div>
+                <ol id="stepList" class="item-list"></ol>
+            </div>
+
+            <div class="form-group">
+                <label for="prepTime">Tempo de Preparo (minutos)</label>
+                <input type="number" id="prepTime" placeholder="Ex: 45" required>
+            </div>
+
+            <div class="form-group">
+                <label for="servings">Porções</label>
+                <input type="number" id="servings" placeholder="Ex: 4" required>
+            </div>
+
+            <div class="form-group">
+                <label for="difficulty">Dificuldade</label>
+                <select id="difficulty" required>
+                    <option value="">Selecione a dificuldade</option>
+                    <option value="">Selecione a dificuldade</option>
+                    <option value="Fácil">Fácil</option>
+                    <option value="Médio">Médio</option>
+                    <option value="Difícil">Difícil</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="categories">Categorias</label>
+                <div class="add-item-group">
+                    <input type="text" id="categoryInput" placeholder="Ex: Doces, Salgados">
+                    <button type="button" onclick="addCategory()">Adicionar</button>
+                </div>
+                <ul id="categoryList" class="item-list"></ul>
+            </div>
+
+            <div class="buttons-container">
+                <button type="button" class="cancel-button" onclick="window.history.back()">Cancelar</button>
+                <button type="submit" class="publish-button">Publicar Receita</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        &copy; 2025 DelicIA App
+    </footer>
+
+    <script src="create_recipe_page.js"></script>
+</body>
+</html>
+

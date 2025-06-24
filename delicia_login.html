@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DelicIA - Entrar na Conta</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="display: flex; justify-content: center; align-items: center; min-height: 100vh; background: linear-gradient(135deg, #4CAF50, #FF9800);">
+    
+    <div class="login-container">
+        <div class="logo">
+            🍳 DelicIA
+        </div>
+        
+        <p style="color: #666; margin-bottom: 25px; font-size: 16px;">
+            Sua plataforma de receitas favorita!
+        </p>
+        
+        <!-- ✅ Correção no form: evita recarregar -->
+        <form id="formLogin" onsubmit="return false;">
+            <div class="form-group">
+                <label for="campoEmail">📧 Email</label>
+                <input type="email" id="campoEmail" placeholder="Digite seu email aqui..." required>
+            </div>
+            
+            <div class="form-group">
+                <label for="campoSenha">🔒 Senha</label>
+                <input type="password" id="campoSenha" placeholder="Digite sua senha..." required>
+            </div>
+            
+            <div class="form-group" style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" id="lembrarLogin" style="width: auto;">
+                <label for="lembrarLogin" style="margin: 0; font-weight: normal;">Lembrar de mim</label>
+            </div>
+            
+            <button type="button" onclick="fazerLogin()" style="margin-top: 20px;">
+                🚀 Entrar no DelicIA
+            </button>
+        </form>
+        
+        <div class="links">
+            <a href="#reset_password_page">😕 Esqueci minha senha</a>
+            <a href="#create_account_page">✨ Criar nova conta</a>
+        </div>
+        
+        <div style="margin-top: 30px; padding: 15px; background-color: #f0f8ff; border-radius: 5px; border-left: 4px solid var(--cor-verde);">
+            <p style="font-size: 14px; color: #555; margin: 0;">
+                💡 <strong>Dica:</strong> Use qualquer email e senha para testar o app!
+            </p>
+        </div>
+        
+        <div style="margin-top: 20px; text-align: center; font-size: 12px; color: #999;">
+            Desenvolvido com ❤️ por estudantes de programação
+        </div>
+    </div>
+
+    <!-- ⚠️ Remova data.js se não for usado -->
+    <!-- <script src="data.js"></script> -->
+
+    <!-- ✅ Script principal com autenticação -->
+    <script src="delicia_login.js"></script>
+
+    <script>
+        function fazerLogin() {
+            console.log("Tentando fazer login..."); // debug
+            handleLogin();
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const campoSenha = document.getElementById('campoSenha');
+            const campoEmail = document.getElementById('campoEmail');
+
+            campoSenha.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    fazerLogin();
+                }
+            });
+
+            campoEmail.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    campoSenha.focus();
+                }
+            });
+
+            campoEmail.focus();
+            console.log("Página de login carregada!"); // debug
+        });
+
+        function alternarVisibilidadeSenha() {
+            const campo = document.getElementById('campoSenha');
+            campo.type = campo.type === 'password' ? 'text' : 'password';
+        }
+    </script>
+</body>
+</html>
